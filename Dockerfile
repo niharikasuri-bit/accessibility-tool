@@ -34,7 +34,7 @@ COPY packages/exporter/package.json  ./packages/exporter/
 # pnpm strict-peer-deps off — workspace setups produce harmless peer warnings
 # that would otherwise fail the build.
 RUN pnpm config set strict-peer-dependencies false && \
-    pnpm install --no-frozen-lockfile
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 pnpm install --no-frozen-lockfile
 
 # ────────────────────────────────────────────────────────────────────────────
 # Stage 2: copy source + build the UI
