@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: digit-a11y-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: singapore
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: CORS_ORIGINS
+        value: https://accessibility-tool-red.vercel.app
+      - key: API_KEY
+        generateValue: true
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: API_PUBLIC_URL
+        sync: false
